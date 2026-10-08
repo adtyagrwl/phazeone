@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phaze One — Unisex Hair &amp; Beauty, Walcot, Swindon</title>
+<meta name="description" content="Phaze One is a unisex hair and beauty salon at 67 Marlowe Avenue, Walcot, Swindon. Haircuts, colour, acrylic nails and 3D nail art. Free parking. Call 01793 526985.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F0E8;
+    --paper-2:#EDE5D8;
+    --paper-3:#E6DCCB;
+    --ink:#1E1915;
+    --ink-soft:#574C42;
+    --rust:#B0522C;
+    --rust-dark:#8A3D1E;
+    --olive:#5A6746;
+    --line:#D4C8B8;
+    --rule:#C0B09C;
+    --font-display:'Fraunces', Georgia, serif;
+    --font-body:'Karla', system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--font-body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(176,82,44,0.035) 0%, transparent 45%),
+      radial-gradient(circle at 85% 92%, rgba(90,103,70,0.04) 0%, transparent 45%);
+  }
+
+  .wrap{max-width:1060px;margin:0 auto;padding:0 1.75rem;}
+
+  :focus-visible{outline:2px solid var(--rust);outline-offset:2px;}
+
+  /* ---------- Sticky top (header + tabs) ---------- */
+  .sticky-top{
+    position:sticky;top:0;z-index:20;
+    background:var(--paper);
+    border-bottom:2px solid var(--ink);
+  }
+
+  .site-header{padding:0.9rem 0;}
+  .site-header .wrap{
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  }
+  .logo-lockup{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+  .logo-mark{
+    width:42px;height:42px;border:2px solid var(--ink);
+    display:grid;place-items:center;
+    font-family:var(--font-display);font-weight:700;font-size:1.1rem;
+    letter-spacing:-0.05em;color:var(--ink);background:var(--paper-2);flex-shrink:0;
+  }
+  .logo-text{
+    font-family:var(--font-display);font-weight:600;font-size:1.2rem;
+    letter-spacing:-0.02em;color:var(--ink);line-height:1.05;
+  }
+  .logo-text small{
+    display:block;font-family:var(--font-body);font-weight:500;
+    font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;
+    color:var(--ink-soft);margin-top:2px;
+  }
+  .header-phone{
+    font-family:var(--font-body);font-weight:600;font-size:0.88rem;
+    color:var(--rust-dark);text-decoration:none;
+    border:2px solid var(--rust);padding:0.35rem 0.95rem;
+    transition:background 0.15s,color 0.15s;white-space:nowrap;
+  }
+  .header-phone:hover{background:var(--rust);color:#fff;}
+
+  /* ---------- Tabs ---------- */
+  .tabnav{border-top:1px solid var(--rule);}
+  .tabnav .wrap{
+    display:flex;gap:0;overflow-x:auto;scrollbar-width:none;
+  }
+  .tabnav .wrap::-webkit-scrollbar{display:none;}
+  .tab{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:0.78rem;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    padding:0.8rem 1rem;
+    border:none;
+    border-bottom:3px solid transparent;
+    background:transparent;
+    color:var(--ink-soft);
+    cursor:pointer;
+    white-space:nowrap;
+    transition:color 0.15s, border-color 0.15s;
+    margin-bottom:-2px;
+  }
+  .tab:hover{color:var(--ink);}
+  .tab[aria-selected="true"]{
+    color:var(--ink);
+    border-bottom-color:var(--rust);
+  }
+  @media(max-width:520px){
+    .tab{font-size:0.7rem;padding:0.75rem 0.7rem;letter-spacing:0.06em;}
+  }
+
+  /* ---------- Panels ---------- */
+  .panel[hidden]{display:none !important;}
+  .panel{padding:2.6rem 0 3.5rem;animation:fade 0.18s ease-out;}
+  @keyframes fade{from{opacity:0;transform:translateY(3px);}to{opacity:1;transform:none;}}
+
+  /* ---------- Typography ---------- */
+  h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:-0.03em;line-height:1.1;}
+  h1{font-size:clamp(2rem,4.6vw,3rem);letter-spacing:-0.035em;margin-bottom:1rem;}
+  h1 em{font-style:italic;color:var(--rust-dark);}
+  h2{font-size:clamp(1.45rem,3vw,1.95rem);}
+  h3{font-size:1.05rem;}
+
+  .eyebrow{
+    font-family:var(--font-body);font-size:0.7rem;font-weight:600;
+    letter-spacing:0.18em;text-transform:uppercase;color:var(--rust);
+    margin-bottom:0.8rem;display:flex;align-items:center;gap:0.55rem;
+  }
+  .eyebrow::before{content:"";display:block;width:26px;height:2px;background:var(--rust);}
+
+  .lede{font-size:1.02rem;color:var(--ink-soft);max-width:46ch;margin-bottom:1.6rem;}
+
+  .section-head{
+    display:flex;align-items:baseline;justify-content:space-between;
+    gap:1rem;border-bottom:2px solid var(--ink);padding-bottom:0.7rem;
+    margin-bottom:1.6rem;flex-wrap:wrap;
+  }
+  .section-head .section-note{font-size:0.8rem;color:var(--ink-soft);font-style:italic;}
+
+  .subhead{
+    font-family:var(--font-display);font-weight:600;font-size:1.05rem;
+    margin:2rem 0 0.7rem;color:var(--ink);
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-block;font-family:var(--font-body);font-weight:600;
+    font-size:0.92rem;padding:0.65rem 1.4rem;text-decoration:none;
+    transition:transform 0.12s, background 0.15s, color 0.15s;
+    border:2px solid transparent;cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-solid{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .btn-solid:hover{background:var(--rust-dark);border-color:var(--rust-dark);}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--paper);}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:0.7rem;}
+
+  /* ---------- Photo blocks ---------- */
+  .photo-block{
+    width:100%;background:var(--paper-2);
+    border:2px solid var(--ink);overflow:hidden;position:relative;
+  }
+  .photo-block img{width:100%;height:100%;object-fit:cover;display:block;}
+
+  /* All side-by-side photos share one aspect ratio */
+  .ratio-43{aspect-ratio:4/3;}
+  .ratio-45{aspect-ratio:4/5;}
+
+  .photo-card{border:2px solid var(--ink);background:var(--paper-2);display:flex;flex-direction:column;}
+  .photo-card .photo-block{border:none;border-bottom:1px solid var(--rule);}
+  .photo-caption{
+    font-size:0.75rem;color:var(--ink-soft);padding:0.5rem 0.7rem;
+    background:var(--paper);display:flex;justify-content:space-between;
+    gap:0.7rem;min-height:2.1rem;align-items:center;
+  }
+  .photo-caption strong{font-weight:600;color:var(--ink);}
+  .img-note{
+    font-size:0.6rem;color:var(--rule);text-align:center;
+    padding:0.25rem 0.5rem;font-style:italic;background:var(--paper);
+  }
+
+  /* ---------- Grids ---------- */
+  .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:2.8rem;align-items:end;}
+  .photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;}
+
+  @media(max-width:780px){
+    .hero-grid{grid-template-columns:1fr;gap:2rem;}
+    .photo-pair{grid-template-columns:1fr;}
+    .info-grid{grid-template-columns:1fr;gap:1.6rem;}
+  }
+
+  /* ---------- Rule band ---------- */
+  .rule-band{
+    border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);
+    padding:1.4rem 0;margin-top:2.6rem;
+  }
+  .rule-band .wrap{
+    display:flex;flex-wrap:wrap;gap:1.4rem 2.2rem;
+    justify-content:space-between;align-items:baseline;
+  }
+  .rule-item{font-size:0.85rem;color:var(--ink-soft);}
+  .rule-item strong{
+    display:block;font-family:var(--font-display);font-size:1.1rem;
+    font-weight:600;color:var(--ink);line-height:1.2;
+  }
+
+  /* ---------- Services ---------- */
+  .services-list{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:0;border:2px solid var(--ink);
+  }
+  .service-item{
+    padding:1.6rem 1.4rem;border-right:1px solid var(--rule);
+    display:flex;flex-direction:column;gap:0.55rem;
+  }
+  .service-item:last-child{border-right:none;}
+  @media(max-width:700px){
+    .services-list{grid-template-columns:1fr;}
+    .service-item{border-right:none;border-bottom:1px solid var(--rule);}
+    .service-item:last-child{border-bottom:none;}
+  }
+  .service-item ul{list-style:none;display:flex;flex-direction:column;gap:0.25rem;margin-top:0.15rem;}
+  .service-item li{
+    font-size:0.88rem;color:var(--ink-soft);padding-left:1rem;position:relative;
+  }
+  .service-item li::before{content:"—";position:absolute;left:0;color:var(--rust);font-weight:600;}
+
+  /* ---------- Price list ---------- */
+  .tbc-banner{
+    background:var(--paper-3);
+    border-left:4px solid var(--rust);
+    padding:0.9rem 1.1rem;
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    margin-bottom:1.6rem;
+  }
+  .tbc-banner strong{color:var(--ink);}
+
+  .price-block{
+    border:2px solid var(--ink);
+    margin-bottom:1.4rem;
+  }
+  .price-block-head{
+    background:var(--ink);color:var(--paper);
+    padding:0.6rem 1.1rem;
+    font-family:var(--font-display);font-weight:600;font-size:1rem;
+    display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  }
+  .price-block-head span{font-family:var(--font-body);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.6;}
+  .price-rows{list-style:none;}
+  .price-rows li{
+    display:flex;align-items:baseline;gap:0.6rem;
+    padding:0.55rem 1.1rem;
+    font-size:0.92rem;
+    border-bottom:1px dotted var(--rule);
+  }
+  .price-rows li:last-child{border-bottom:none;}
+  .price-rows .item{color:var(--ink-soft);}
+  .price-rows .dots{
+    flex:1;border-bottom:1px dotted var(--rule);
+    transform:translateY(-3px);min-width:1rem;
+  }
+  .price-rows .amount{font-weight:600;color:var(--ink);white-space:nowrap;}
+  .price-rows .amount small{
+    font-weight:500;font-size:0.72rem;color:var(--rust);
+    letter-spacing:0.05em;text-transform:uppercase;margin-left:0.4rem;
+  }
+
+  /* ---------- Reviews ---------- */
+  .review-stack{display:flex;flex-direction:column;gap:0;}
+  .review{
+    display:grid;grid-template-columns:auto 1fr;gap:1.1rem;
+    padding:1.1rem 0;border-bottom:1px solid var(--rule);
+  }
+  .review:last-child{border-bottom:none;}
+  .review-mark{
+    font-family:var(--font-display);font-size:1.9rem;line-height:1;
+    color:var(--rust);font-weight:700;opacity:0.85;
+  }
+  .review-body p{font-size:0.92rem;color:var(--ink-soft);margin-bottom:0.3rem;font-style:italic;}
+  .review-body cite{
+    font-style:normal;font-size:0.72rem;font-weight:600;
+    color:var(--rust-dark);letter-spacing:0.05em;text-transform:uppercase;
+  }
+  .review-source{font-size:0.7rem;color:var(--rule);margin-top:0.15rem;}
+
+  /* ---------- Info blocks ---------- */
+  .info-block h3{
+    font-family:var(--font-display);font-weight:600;font-size:1.05rem;
+    margin-bottom:0.7rem;color:var(--ink);
+  }
+  .hours-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+  .hours-list li{
+    display:flex;justify-content:space-between;font-size:0.9rem;
+    padding:0.3rem 0;border-bottom:1px dotted var(--rule);
+  }
+  .hours-list li:last-child{border-bottom:none;}
+  .hours-list li span:first-child{color:var(--ink-soft);}
+  .hours-list li span:last-child{font-weight:600;color:var(--ink);}
+  .info-block address{
+    font-style:normal;font-size:0.92rem;color:var(--ink-soft);line-height:1.7;
+  }
+  .info-block address a{
+    color:var(--rust-dark);font-weight:600;text-decoration:none;
+    border-bottom:1px solid var(--rust);
+  }
+  .info-block address a:hover{border-bottom-color:var(--ink);}
+  .parking-note{
+    font-size:0.88rem;color:var(--ink-soft);line-height:1.65;
+    background:var(--paper-2);padding:1rem 1.1rem;
+    border-left:3px solid var(--olive);margin-top:0.9rem;
+  }
+  .parking-note strong{color:var(--ink);}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule);}
+  .faq-item{padding:1.1rem 0;border-bottom:1px solid var(--rule);}
+  .faq-item h3{margin-bottom:0.3rem;}
+  .faq-item p{font-size:0.9rem;color:var(--ink-soft);max-width:72ch;}
+  .faq-item a{color:var(--rust-dark);font-weight:600;text-decoration:none;border-bottom:1px solid var(--rust);}
+
+  /* ---------- Footer ---------- */
+  .site-footer{
+    border-top:2px solid var(--ink);padding:1.8rem 0;
+    font-size:0.82rem;color:var(--ink-soft);
+  }
+  .site-footer .wrap{
+    display:flex;flex-wrap:wrap;justify-content:space-between;
+    gap:1rem;align-items:baseline;
+  }
+  .site-footer a{color:var(--rust-dark);text-decoration:none;border-bottom:1px solid var(--rust);}
+  .site-footer a:hover{border-bottom-color:var(--ink);}
+
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0,0,0,0);border:0;
+  }
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <header class="site-header">
+    <div class="wrap">
+      <a href="#" class="logo-lockup" onclick="showTab('about');return false;">
+        <div class="logo-mark" aria-hidden="true">P1</div>
+        <div class="logo-text">
+          Phaze One
+          <small>Hair &amp; Beauty · Walcot</small>
+        </div>
+      </a>
+      <a href="tel:01793526985" class="header-phone">01793 526985</a>
+    </div>
+  </header>
+
+  <nav class="tabnav" aria-label="Site sections">
+    <div class="wrap" role="tablist">
+      <button class="tab" role="tab" id="tab-about"   aria-controls="panel-about"   aria-selected="true"  tabindex="0">About</button>
+      <button class="tab" role="tab" id="tab-services" aria-controls="panel-services" aria-selected="false" tabindex="-1">Services</button>
+      <button class="tab" role="tab" id="tab-prices"  aria-controls="panel-prices"  aria-selected="false" tabindex="-1">Prices</button>
+      <button class="tab" role="tab" id="tab-gallery" aria-controls="panel-gallery" aria-selected="false" tabindex="-1">Gallery</button>
+      <button class="tab" role="tab" id="tab-reviews" aria-controls="panel-reviews" aria-selected="false" tabindex="-1">Reviews</button>
+      <button class="tab" role="tab" id="tab-visit"   aria-controls="panel-visit"   aria-selected="false" tabindex="-1">Visit</button>
+    </div>
+  </nav>
+</div>
+
+<main>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Marlowe Avenue · Swindon</p>
+          <h1>Hair and beauty for <em>everyone</em> on the parade.</h1>
+          <p class="lede">Phaze One is a unisex salon at 67 Marlowe Avenue. Haircuts, colour, acrylic nails, 3D nail art and waxing — done by a small team that knows its regulars by first name.</p>
+          <div class="hero-actions">
+            <a href="tel:01793526985" class="btn btn-solid">Call to book</a>
+            <button class="btn btn-outline" onclick="showTab('prices')">See price list</button>
+          </div>
+        </div>
+        <div>
+          <div class="photo-block ratio-45">
+            <!-- Replace with real photo: right-click on facebook.com/181986355322964 → Save image as → images/phaze-one-salon-front.jpg -->
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="Hair salon interior — stock placeholder, replace with Phaze One salon front">
+          </div>
+          <p class="img-note">Stock photo — replace with Phaze One salon front from Facebook</p>
+        </div>
+      </div>
+
+      <div class="rule-band">
+        <div class="wrap" style="padding:0;">
+          <div class="rule-item"><strong>Unisex</strong> Men and women welcome</div>
+          <div class="rule-item"><strong>11+ years</strong> Nail industry experience</div>
+          <div class="rule-item"><strong>Free parking</strong> Marlowe Avenue shops car park</div>
+          <div class="rule-item"><strong>Walk-in friendly</strong> Call to check availability</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="panel" id="panel-services" role="tabpanel" aria-labelledby="tab-services" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What we do</h2>
+        <span class="section-note">Full-service unisex salon</span>
+      </div>
+      <div class="services-list">
+        <div class="service-item">
+          <h3>Hair — Men &amp; Women</h3>
+          <ul>
+            <li>Cut &amp; finish</li>
+            <li>Colour &amp; highlights</li>
+            <li>Balayage &amp; toning</li>
+            <li>Deep conditioning</li>
+            <li>Restyles &amp; transformations</li>
+          </ul>
+        </div>
+        <div class="service-item">
+          <h3>Nails</h3>
+          <ul>
+            <li>Acrylic nails</li>
+            <li>Acrylic infills</li>
+            <li>3D acrylic nail art</li>
+            <li>Gel polish</li>
+            <li>Repairs &amp; maintenance</li>
+          </ul>
+        </div>
+        <div class="service-item">
+          <h3>Beauty</h3>
+          <ul>
+            <li>Waxing — face &amp; body</li>
+            <li>Eyebrow wax &amp; tint</li>
+            <li>Eyelash tint</li>
+            <li>Lip &amp; chin wax</li>
+            <li>Leg, underarm &amp; bikini wax</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="subhead">Who we are</p>
+      <p style="font-size:0.95rem;color:var(--ink-soft);max-width:70ch;">
+        Bianca and Danniella are on the hair side. Matt handles beauty and nails, and has been in the
+        industry over a decade. Between them they cover everything from a quick men's cut to a full
+        colour correction or a set of 3D acrylics. If you're not sure what you want, ask — they'll tell
+        you honestly what will work with your hair.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= PRICES ================= -->
+  <section class="panel" id="panel-prices" role="tabpanel" aria-labelledby="tab-prices" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Price list</h2>
+        <span class="section-note">Guide prices</span>
+      </div>
+
+      <div class="tbc-banner">
+        <strong>Prices shown below are placeholders (TBC).</strong> They are here so you can see the layout —
+        the salon needs to confirm the real figures before this goes live. Every price is marked
+        <em>TBC</em>. Don't publish this page until they're replaced.
+      </div>
+
+      <!-- HAIR — WOMEN -->
+      <div class="price-block">
+        <div class="price-block-head">Hair — Women <span>Prices TBC</span></div>
+        <ul class="price-rows">
+          <li><span class="item">Cut &amp; finish</span><span class="dots"></span><span class="amount">£32 <small>TBC</small></span></li>
+          <li><span class="item">Cut &amp; blow dry</span><span class="dots"></span><span class="amount">£38 <small>TBC</small></span></li>
+          <li><span class="item">Restyle</span><span class="dots"></span><span class="amount">£45 <small>TBC</small></span></li>
+          <li><span class="item">Dry cut</span><span class="dots"></span><span class="amount">£22 <small>TBC</small></span></li>
+          <li><span class="item">Full head colour</span><span class="dots"></span><span class="amount">£70 <small>TBC</small></span></li>
+          <li><span class="item">Root colour (regrowth)</span><span class="dots"></span><span class="amount">£48 <small>TBC</small></span></li>
+          <li><span class="item">Full head highlights</span><span class="dots"></span><span class="amount">£85 <small>TBC</small></span></li>
+          <li><span class="item">Half head highlights</span><span class="dots"></span><span class="amount">£62 <small>TBC</small></span></li>
+          <li><span class="item">Balayage</span><span class="dots"></span><span class="amount">£95 <small>TBC</small></span></li>
+          <li><span class="item">Toner</span><span class="dots"></span><span class="amount">£25 <small>TBC</small></span></li>
+          <li><span class="item">Deep conditioning treatment</span><span class="dots"></span><span class="amount">£18 <small>TBC</small></span></li>
+        </ul>
+      </div>
+
+      <!-- HAIR — MEN & KIDS -->
+      <div class="price-block">
+        <div class="price-block-head">Hair — Men &amp; Children <span>Prices TBC</span></div>
+        <ul class="price-rows">
+          <li><span class="item">Men's cut &amp; finish</span><span class="dots"></span><span class="amount">£15 <small>TBC</small></span></li>
+          <li><span class="item">Skin fade</span><span class="dots"></span><span class="amount">£17 <small>TBC</small></span></li>
+          <li><span class="item">Cut &amp; beard trim</span><span class="dots"></span><span class="amount">£22 <small>TBC</small></span></li>
+          <li><span class="item">Beard trim (no cut)</span><span class="dots"></span><span class="amount">£8 <small>TBC</small></span></li>
+          <li><span class="item">Boys (under 12)</span><span class="dots"></span><span class="amount">£10 <small>TBC</small></span></li>
+          <li><span class="item">Girls (under 12), dry cut</span><span class="dots"></span><span class="amount">£12 <small>TBC</small></span></li>
+        </ul>
+      </div>
+
+      <!-- NAILS -->
+      <div class="price-block">
+        <div class="price-block-head">Nails <span>Prices TBC</span></div>
+        <ul class="price-rows">
+          <li><span class="item">Acrylic full set</span><span class="dots"></span><span class="amount">£35 <small>TBC</small></span></li>
+          <li><span class="item">Acrylic infills</span><span class="dots"></span><span class="amount">£25 <small>TBC</small></span></li>
+          <li><span class="item">Gel polish (on natural nails)</span><span class="dots"></span><span class="amount">£22 <small>TBC</small></span></li>
+          <li><span class="item">Gel polish on acrylics</span><span class="dots"></span><span class="amount">£15 <small>TBC</small></span></li>
+          <li><span class="item">3D nail art</span><span class="dots"></span><span class="amount">from £3 per nail <small>TBC</small></span></li>
+          <li><span class="item">Single nail repair</span><span class="dots"></span><span class="amount">£5 <small>TBC</small></span></li>
+          <li><span class="item">Soak off &amp; tidy</span><span class="dots"></span><span class="amount">£12 <small>TBC</small></span></li>
+        </ul>
+      </div>
+
+      <!-- BEAUTY -->
+      <div class="price-block">
+        <div class="price-block-head">Beauty &amp; Waxing <span>Prices TBC</span></div>
+        <ul class="price-rows">
+          <li><span class="item">Eyebrow wax</span><span class="dots"></span><span class="amount">£8 <small>TBC</small></span></li>
+          <li><span class="item">Eyebrow tint</span><span class="dots"></span><span class="amount">£9 <small>TBC</small></span></li>
+          <li><span class="item">Eyebrow wax &amp; tint</span><span class="dots"></span><span class="amount">£14 <small>TBC</small></span></li>
+          <li><span class="item">Eyelash tint</span><span class="dots"></span><span class="amount">£12 <small>TBC</small></span></li>
+          <li><span class="item">Lip or chin wax</span><span class="dots"></span><span class="amount">£7 <small>TBC</small></span></li>
+          <li><span class="item">Lip &amp; chin wax</span><span class="dots"></span><span class="amount">£10 <small>TBC</small></span></li>
+          <li><span class="item">Underarm wax</span><span class="dots"></span><span class="amount">£10 <small>TBC</small></span></li>
+          <li><span class="item">Half leg wax</span><span class="dots"></span><span class="amount">£18 <small>TBC</small></span></li>
+          <li><span class="item">Full leg wax</span><span class="dots"></span><span class="amount">£28 <small>TBC</small></span></li>
+          <li><span class="item">Bikini wax</span><span class="dots"></span><span class="amount">£15 <small>TBC</small></span></li>
+          <li><span class="item">Full leg, underarm &amp; bikini</span><span class="dots"></span><span class="amount">£45 <small>TBC</small></span></li>
+        </ul>
+      </div>
+
+      <p style="font-size:0.85rem;color:var(--ink-soft);margin-top:1.2rem;">
+        Prices may vary with hair length, thickness, and the condition of your nails. Call
+        <a href="tel:01793526985" style="color:var(--rust-dark);font-weight:600;">01793 526985</a>
+        for a quote before booking.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section class="panel" id="panel-gallery" role="tabpanel" aria-labelledby="tab-gallery" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Recent work</h2>
+        <span class="section-note">From our Facebook &amp; Instagram</span>
+      </div>
+
+      <!-- All four photos use the same 4:3 ratio, so they're identical in size -->
+      <div class="photo-pair">
+        <div class="photo-card">
+          <div class="photo-block ratio-43">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=700&q=80" alt="Hair colour transformation — stock placeholder">
+          </div>
+          <div class="photo-caption">
+            <strong>Colour &amp; cut</strong>
+            <span>Posted by the salon</span>
+          </div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-block ratio-43">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700&q=80" alt="Nail art — stock placeholder">
+          </div>
+          <div class="photo-caption">
+            <strong>3D acrylic art</strong>
+            <span>On request</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-pair" style="margin-top:1.2rem;">
+        <div class="photo-card">
+          <div class="photo-block ratio-43">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80" alt="Salon interior — stock placeholder">
+          </div>
+          <div class="photo-caption">
+            <strong>Inside the salon</strong>
+            <span>67 Marlowe Avenue</span>
+          </div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-block ratio-43">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=700&q=80" alt="Waxing and beauty treatment — stock placeholder">
+          </div>
+          <div class="photo-caption">
+            <strong>Beauty room</strong>
+            <span>Waxing &amp; tinting</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="img-note" style="margin-top:1rem;font-size:0.7rem;">
+        All four images above are Unsplash placeholders. Replace each with a real photo from the Phaze One
+        Facebook page — right-click the image on Facebook, save it to an <code>images/</code> folder, then
+        swap the <code>src</code> URL. Keep them 4:3 or they'll stop matching.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section class="panel" id="panel-reviews" role="tabpanel" aria-labelledby="tab-reviews" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What Swindon says</h2>
+        <span class="section-note">Reviews from Facebook &amp; Treatwell</span>
+      </div>
+      <div class="review-stack">
+        <div class="review">
+          <span class="review-mark" aria-hidden="true">“</span>
+          <div class="review-body">
+            <p>My first visit to Matt, to have my nails done — they were not in very good condition but he was charming and helpful. He is very professional and talks you through each step. Matt was caring and gave excellent advice. I have already rebooked and will be a regular client.</p>
+            <cite>— Treatwell review</cite>
+            <p class="review-source">Verified booking, most recent</p>
+          </div>
+        </div>
+        <div class="review">
+          <span class="review-mark" aria-hidden="true">“</span>
+          <div class="review-body">
+            <p>Love this salon! Always happy when I leave. Great, friendly and professional. Over a year now and I wouldn't go anywhere else.</p>
+            <cite>— Facebook review</cite>
+            <p class="review-source">2016</p>
+          </div>
+        </div>
+        <div class="review">
+          <span class="review-mark" aria-hidden="true">“</span>
+          <div class="review-body">
+            <p>I had my hair transformed again by Danniella and the outcome is much better than I could have wanted. I've received so many compliments.</p>
+            <cite>— Facebook review</cite>
+            <p class="review-source">2016</p>
+          </div>
+        </div>
+        <div class="review">
+          <span class="review-mark" aria-hidden="true">“</span>
+          <div class="review-body">
+            <p>I always go to Bianca at Phaze One to get my hair done. I have never had a bad experience and walk away with something I absolutely love every time.</p>
+            <cite>— Facebook review</cite>
+            <p class="review-source">2015</p>
+          </div>
+        </div>
+        <div class="review">
+          <span class="review-mark" aria-hidden="true">“</span>
+          <div class="review-body">
+            <p>Both stylists Danniella and Bianca have done my hair and it was a brilliant job, was very pleased. Matt is also excellent on the beauty side.</p>
+            <cite>— Facebook review</cite>
+            <p class="review-source">2015</p>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:0.82rem;color:var(--ink-soft);margin-top:1.4rem;font-style:italic;">
+        Reviews are the public ones currently visible on Facebook and Treatwell. Once the salon has a
+        Google Business Profile, add the Google widget here so new reviews pull through automatically.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= VISIT ================= -->
+  <section class="panel" id="panel-visit" role="tabpanel" aria-labelledby="tab-visit" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Visit us</h2>
+        <span class="section-note">Walcot East, Swindon</span>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-block">
+          <h3>Parking</h3>
+          <div class="parking-note">
+            <strong>Free customer parking</strong> at the Marlowe Avenue shops car park — directly outside
+            the salon. It's a small car park shared with the other shops on the parade, so it can fill up
+            at peak times, but you can usually find a space within a minute's walk.<br><br>
+            <strong>On-street parking</strong> on Marlowe Avenue itself is limited and restricted. If the
+            shops car park is full, Greenbridge Retail Park is about a 5-minute walk away.<br><br>
+            <strong>By bus:</strong> the Marlowe Avenue Shops stop is a 1-minute walk. Routes 2 and 5.
+          </div>
+
+          <h3 style="margin-top:1.4rem;">Address</h3>
+          <address>
+            Phaze One<br>
+            67 Marlowe Avenue<br>
+            Walcot East<br>
+            Swindon SN3 3HQ<br><br>
+            <a href="tel:01793526985">01793 526985</a><br>
+            <a href="https://www.facebook.com/181986355322964" target="_blank" rel="noopener">Facebook page</a><br>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Phaze+One+67+Marlowe+Avenue+Swindon+SN3+3HQ" target="_blank" rel="noopener">Open in Google Maps</a>
+          </address>
+        </div>
+
+        <div class="info-block">
+          <h3>Opening hours</h3>
+          <ul class="hours-list">
+            <li><span>Monday</span><span>9:15 – 17:30</span></li>
+            <li><span>Tuesday</span><span>8:30 – 17:30</span></li>
+            <li><span>Wednesday</span><span>8:30 – 17:30</span></li>
+            <li><span>Thursday</span><span>8:30 – 17:30</span></li>
+            <li><span>Friday</span><span>8:30 – 18:00</span></li>
+            <li><span>Saturday</span><span>8:30 – 16:00</span></li>
+            <li><span>Sunday</span><span>Closed</span></li>
+          </ul>
+          <p style="font-size:0.82rem;color:var(--ink-soft);margin-top:0.8rem;font-style:italic;">
+            Last appointment is usually 45 minutes before closing. Call ahead to check.
+          </p>
+        </div>
+      </div>
+
+      <p class="subhead">Before you book</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Is Phaze One unisex?</h3>
+          <p>Yes. Phaze One is a full-service unisex salon serving both men and women. Haircuts, colour, and beauty treatments are available for all.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you do acrylic nails and nail art?</h3>
+          <p>Yes. Acrylic nails are a core service, and 3D acrylic nail art is available on request. The nail technician has over 11 years of industry experience.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is there parking at the salon?</h3>
+          <p>Yes — free customer parking is available at the Marlowe Avenue shops car park directly outside the salon. It's a small car park shared with other shops, so it can be busy at peak times. The nearest bus stop is Marlowe Avenue Shops (1 minute walk, routes 2 and 5).</p>
+        </div>
+        <div class="faq-item">
+          <h3>How do I book an appointment?</h3>
+          <p>Call <a href="tel:01793526985">01793 526985</a>. Walk-ins are sometimes possible, but booking ahead is recommended — especially for colour, balayage, and nail art.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Where is Phaze One in Swindon?</h3>
+          <p>67 Marlowe Avenue, Walcot East, Swindon SN3 3HQ. It's on the parade of shops, a 1-minute walk from the Marlowe Avenue Shops bus stop.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you take card payments?</h3>
+          <p>Call ahead to confirm — the salon accepts card and cash, but it's worth checking before a large booking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© Phaze One, Swindon. Unisex hair &amp; beauty.</span>
+    <span>67 Marlowe Avenue, SN3 3HQ · <a href="tel:01793526985">01793 526985</a></span>
+  </div>
+</footer>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HairSalon",
+  "name":"Phaze One",
+  "description":"Full-service unisex hair and beauty salon in Walcot, Swindon. Haircuts, colour, acrylic nails, 3D nail art, waxing, and beauty treatments for men and women. Free customer parking.",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"67 Marlowe Avenue",
+    "addressLocality":"Swindon",
+    "addressRegion":"Wiltshire",
+    "postalCode":"SN3 3HQ",
+    "addressCountry":"GB"
+  },
+  "telephone":"+441793526985",
+  "url":"https://www.facebook.com/181986355322964",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"09:15","closes":"17:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday"],"opens":"08:30","closes":"17:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"08:30","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:30","closes":"16:00"}
+  ],
+  "review":[
+    {
+      "@type":"Review",
+      "reviewBody":"My first visit to Matt, to have my nails done — they were not in very good condition but he was charming and helpful. He is very professional and talks you through each step. I have already rebooked and will be a regular client.",
+      "author":{"@type":"Person","name":"Treatwell reviewer"}
+    },
+    {
+      "@type":"Review",
+      "reviewBody":"I always go to Bianca at Phaze One to get my hair done. I have never had a bad experience and walk away with something I absolutely love every time.",
+      "author":{"@type":"Person","name":"Facebook reviewer"}
+    }
+  ],
+  "priceRange":"££",
+  "areaServed":{"@type":"City","name":"Swindon"},
+  "amenityFeature":{
+    "@type":"LocationFeatureSpecification",
+    "name":"Free customer parking",
+    "value":true
+  }
+}
+</script>
+
+<!-- Tabs: click, keyboard, and hash routing -->
+<script>
+(function(){
+  var tabs   = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+
+  function activate(tab, updateHash){
+    tabs.forEach(function(t){
+      var on = (t === tab);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    if (updateHash && history.replaceState){
+      history.replaceState(null, '', '#' + tab.id.replace(/^tab-/, ''));
+    }
+  }
+
+  function showTab(name){
+    var tab = document.getElementById('tab-' + name);
+    if (tab) activate(tab, true);
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  window.showTab = showTab;
+
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){ activate(tab, true); });
+    tab.addEventListener('keydown', function(e){
+      var idx = i;
+      if (e.key === 'ArrowRight')      idx = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft')  idx = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home')       idx = 0;
+      else if (e.key === 'End')        idx = tabs.length - 1;
+      else return;
+      e.preventDefault();
+      tabs[idx].focus();
+      activate(tabs[idx], true);
+    });
+  });
+
+  // Deep link support: /#prices, /#gallery, etc.
+  function fromHash(){
+    var name = (location.hash || '').replace(/^#/, '');
+    if (!name) return;
+    var tab = document.getElementById('tab-' + name);
+    if (tab) activate(tab, false);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+
+</body>
+</html>
